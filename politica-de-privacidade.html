@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade | Panela de Sobra</title>
+    <meta name="description" content="Política de Privacidade do aplicativo Panela de Sobra — LGPD.">
+        
+    <!-- Pré-carrega a Licorice para evitar FOIT -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/licorice/v6/t5hjIRL6f4PTC1JN-DmC5PdX6Gk.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Licorice&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <link rel="icon" href="assets/imagens/favicon.png" type="image/png">
+<style>
+        @keyframes pulsar {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.7; }
+        }
+        @keyframes vapor {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-15px) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Tela de carregamento (CSS puro, some após 2 segundos) -->
+    <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#fff8e6;display:flex;justify-content:center;align-items:center;z-index:99999;margin:0;padding:0;animation:sumir 0.5s ease 2s forwards;">
+        <div style="text-align:center;">
+            <div style="position:relative;display:inline-block;margin-bottom:1.5rem;">
+                <span style="font-size:5rem;display:block;animation:pulsar 1.2s ease-in-out infinite;">🍲</span>
+                <div style="position:absolute;top:-20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;">
+                    <span style="display:block;width:8px;height:20px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out infinite;"></span>
+                    <span style="display:block;width:8px;height:16px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.2s infinite;"></span>
+                    <span style="display:block;width:8px;height:12px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.4s infinite;"></span>
+                </div>
+            </div>
+            <p style="font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:600;color:#3d2c1e;opacity:0.8;animation:pulsar 1.5s ease-in-out infinite;">Preparando os ingredientes...</p>
+        </div>
+    </div>
+
+    <style>
+        @keyframes pulsar {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.7; }
+        }
+        @keyframes vapor {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-15px) scale(1.5); opacity: 0; }
+        }
+        @keyframes sumir {
+            to { opacity: 0; visibility: hidden; }
+        }
+    </style>
+
+    <header class="cabecalho">
+        <div class="container cabecalho__conteudo">
+            <a href="index.html" class="logo">Panela de Sobra</a>
+        </div>
+    </header>
+
+    <main class="pagina-legal">
+        <div class="container">
+            <h1>Política de Privacidade</h1>
+            <p class="atualizacao">Última atualização: 17 de maio de 2026</p>
+
+            <p>A sua privacidade é importante para nós. Esta política explica, com transparência, quais dados pessoais coletamos, como os tratamos, para quais finalidades, com quem os compartilhamos e quais são os seus direitos, tudo em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 – LGPD). Recomendamos a leitura atenta deste documento. Ao utilizar o aplicativo, você declara estar ciente das práticas aqui descritas.</p>
+
+            <h2>1. Quem somos e nosso papel na LGPD</h2>
+            <p>O Panela de Sobra é um aplicativo independente desenvolvido por Maiteux Zanela de Oliveira Teixeira, que atua como Controladora do tratamento dos seus dados pessoais, nos termos do Art. 5º, VI, da LGPD. Somos nós quem decide sobre a forma e a finalidade do tratamento dos dados.</p>
+            <p>Para exercer seus direitos ou esclarecer dúvidas sobre esta política, fale conosco:</p>
+            <ul>
+                <li>E-mail do Encarregado (DPO): paneladesobra@gmail.com</li>
+                <li>Canal de Comunicação: O mesmo e-mail acima atende aos titulares de dados.</li>
+            </ul>
+            <p>Conforme a Resolução CD/ANPD nº 02/2022, o Panela de Sobra, por se tratar de um projeto de pequeno porte, está dispensado da nomeação formal de um Encarregado (DPO), mas mantemos este canal de comunicação para atender você de forma direta e transparente.</p>
+
+            <h2>2. Quais dados coletamos e como</h2>
+            <p>Coletamos apenas os dados estritamente necessários para que o aplicativo funcione da melhor forma possível. Você está no controle: todos os dados são fornecidos diretamente por você ao interagir com o app.</p>
+            <ul>
+                <li><strong>Nome</strong> — Identificar você e personalizar a experiência. Obrigatório (para criar conta).</li>
+                <li><strong>E-mail</strong> — Criar sua conta, garantir acesso seguro e permitir a recuperação de senha. Obrigatório (para criar conta).</li>
+                <li><strong>ID Anônimo (Firebase)</strong> — Identificar sua conta de forma pseudonimizada nos servidores do Google Cloud. Automático (gerado pelo Firebase).</li>
+                <li><strong>Ingredientes da sua despensa</strong> — Calcular a compatibilidade entre o que você tem em casa e as receitas disponíveis. Opcional (fornecido por você).</li>
+                <li><strong>Refeições do cardápio semanal</strong> — Montar e salvar seu planejamento de refeições. Opcional (fornecido por você).</li>
+                <li><strong>Receitas que você digitaliza</strong> — Processar as fotos para extrair texto e incorporar a receita à base coletiva do app. Opcional (fornecido por você).</li>
+                <li><strong>Restrições alimentares (futuro)</strong> — Personalizar sugestões de receitas. Opcional (fornecido por você).</li>
+            </ul>
+            <p><strong>Informações importantes:</strong></p>
+            <ul>
+                <li>Receitas que você digitaliza são incorporadas à base coletiva para enriquecer o acervo da comunidade. Sua receita será identificada como criada por você, mas seus dados pessoais (nome, e-mail) não são exibidos publicamente.</li>
+                <li>Seus ingredientes e planejamento de cardápio são privados. Nenhum outro usuário tem acesso a essas informações.</li>
+                <li>Não coletamos dados automaticamente, exceto o ID anônimo gerado para a autenticação. Tudo o que está listado acima depende de uma ação sua.</li>
+                <li><strong>Login via Google:</strong> Ao optar por essa funcionalidade, você autoriza o Google a nos fornecer seu nome e e-mail. Nosso aplicativo não acessa outros dados do seu perfil Google. O tratamento desses dados pelo Google está sujeito à Política de Privacidade do Google.</li>
+            </ul>
+
+            <h2>3. Com quais bases legais tratamos seus dados (Art. 7º e 11 da LGPD)</h2>
+            <p>A LGPD exige que todo tratamento de dados tenha uma base legal. Para cada tipo de dado que você nos fornece, nos apoiamos em uma das seguintes bases:</p>
+            <ul>
+                <li><strong>Nome, e-mail, ID Anônimo:</strong> Execução de Contrato (Art. 7º, V) — Essenciais para criar e manter sua conta.</li>
+                <li><strong>Ingredientes e Planejamento de Refeições:</strong> Legítimo Interesse (Art. 7º, IX) e Execução de Contrato — Fornecer a principal funcionalidade do app.</li>
+                <li><strong>Receitas Digitalizadas:</strong> Execução de Contrato (Art. 7º, V) — Funcionalidade que você solicita ao usar a ferramenta de digitalização.</li>
+                <li><strong>Restrições Alimentares (futuro):</strong> Consentimento Específico e Destacado (Art. 11, I) — Podem revelar dados sensíveis sobre sua saúde ou convicções.</li>
+            </ul>
+            <p><strong>Sobre o Consentimento:</strong> Você nunca será surpreendido. O consentimento para dados sensíveis será pedido com destaque, em tela separada. Você pode revogar seu consentimento a qualquer momento.</p>
+
+            <h2>4. Cookies, analytics e tecnologias de rastreamento</h2>
+            <p>Atualmente, o Panela de Sobra não exibe anúncios de terceiros. Para entender como o app é utilizado e poder melhorá-lo, utilizamos o Firebase Analytics, uma ferramenta do Google que coleta dados de uso de forma anônima e agregada. Tratamos esses dados com base no nosso Legítimo Interesse (Art. 7º, IX). Você pode desativar o envio desses dados anônimos nas configurações do seu dispositivo ou do app.</p>
+
+            <h2>5. Com quem compartilhamos seus dados</h2>
+            <p>Seus dados são tratados com respeito e não são comercializados. O compartilhamento ocorre apenas nas situações estritamente necessárias:</p>
+            <ul>
+                <li><strong>Firebase (Google Cloud Platform)</strong> — Armazena seus dados pessoais e processa fotos para digitalização das receitas.</li>
+                <li><strong>Firebase Analytics (Google)</strong> — Apenas dados anônimos e agregados.</li>
+                <li><strong>IA de Digitalização (Gemini, do Google)</strong> — As imagens das receitas são processadas para extrair o texto. O Google não utiliza suas imagens para treinar seus modelos de IA.</li>
+                <li><strong>Autoridades Públicas</strong> — Se formos obrigados por lei ou ordem judicial.</li>
+            </ul>
+
+            <h2>6. Transferência internacional de dados</h2>
+            <p>Os servidores da Firebase e do Google Analytics estão localizados em diversos países, incluindo os Estados Unidos. A Google LLC adota as Cláusulas Contratuais Padrão da ANPD e mantém certificações de segurança (como ISO 27001).</p>
+
+            <h2>7. Segurança dos dados</h2>
+            <p>Adotamos medidas técnicas e organizacionais para proteger seus dados: criptografia em trânsito (TLS) e em repouso (AES), acesso restrito com autenticação de dois fatores, e os princípios de "Privacy by Design".</p>
+
+            <h2>8. Seus direitos como titular (LGPD)</h2>
+            <p>A LGPD lhe confere uma série de direitos. Para exercê-los, envie um e-mail para paneladesobra@gmail.com. Responderemos em até 15 dias úteis. Seus direitos incluem: Confirmação e Acesso, Correção, Anonimização, Bloqueio ou Eliminação, Portabilidade, Eliminação, Informação sobre Compartilhamento, Revogação do Consentimento e Oposição.</p>
+
+            <h2>9. Retenção dos dados</h2>
+            <p>Seus dados são mantidos apenas enquanto você for usuário ativo. Se solicitar a exclusão da conta, todos os seus dados pessoais são removidos em até 30 dias. As receitas que você compartilhou podem permanecer no acervo coletivo, mas serão desvinculadas do seu nome, ficando sob um perfil "Usuário(a) Anônimo(a)".</p>
+
+            <h2>10. Alterações nesta política</h2>
+            <p>Esta política pode ser atualizada. Se fizermos alguma alteração relevante, você será avisado com destaque: por e-mail, banner no aplicativo ou notificação push. A data da última atualização estará sempre visível no topo da página.</p>
+
+            <h2>11. Links úteis</h2>
+            <ul>
+                <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Google</a> (para login via Google)</li>
+                <li><a href="https://firebase.google.com/terms/" target="_blank" rel="noopener">Termos de Serviço do Firebase</a> (onde seus dados são armazenados)</li>
+            </ul>
+
+            <h2>12. Contato e Encarregado (DPO)</h2>
+            <p>Para qualquer dúvida sobre privacidade ou para exercer seus direitos, fale diretamente com a gente:</p>
+            <ul>
+                <li>E-mail: paneladesobra@gmail.com</li>
+                <li>Responsável (Controladora): Maiteux Zanela de Oliveira Teixeira</li>
+            </ul>
+            <p>Esta política está em conformidade com a Lei nº 13.709/2018 (LGPD), com o Marco Civil da Internet (Lei nº 12.965/2014), com o Código de Defesa do Consumidor (Lei nº 8.078/90) e com as orientações da ANPD (Lei nº 15.352/2026).</p>
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <div class="container rodape__conteudo">
+            <p class="rodape__copy">© 2026 Panela de Sobra — Todos os direitos reservados. Feito com ❤️ e muitas panelas.</p>
+            <nav class="rodape__links">
+                <a href="contato.html">Contato</a>
+                <a href="termos-de-uso.html">Termos de Uso</a>
+                <a href="politica-de-privacidade.html">Política de Privacidade</a>
+            </nav>
+            <p class="rodape__lgpd">Respeitamos sua privacidade. Seus dados serão usados apenas para comunicação do teste fechado e não serão compartilhados.</p>
+        </div>
+    </footer>
+</body>
+</html>

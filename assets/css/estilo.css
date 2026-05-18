@@ -1,0 +1,749 @@
+/* ============================================
+   PANELA DE SOBRA - ESTILO CSS
+   Alma de caderno, coração de cozinha.
+   ============================================ */
+
+/* --- Variáveis de cores --- */
+:root {
+  --laranja:      #ff7f00;
+  --fundo:        #fff8e6;
+  --adesivo:      #ffedbb;
+  --tab-ativo:    #ffbd35;
+  --vermelho:     #ff5756;
+  --verde:        #76bf00;
+  --amarelo:      #ffdd08;
+  --texto:        #3d2c1e;
+  --sombra-suave: 0 4px 12px rgba(0,0,0,0.05);
+  --borda-torta:  30% 70% 60% 40% / 40% 50% 50% 60%;
+}
+
+/* ============================================
+   CORREÇÃO DE RENDERIZAÇÃO DE FONTES
+   ============================================ */
+
+/* 1. Força a suavização global de fontes */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================
+   CORREÇÃO ESPECÍFICA DA FONTE LICORICE
+   ============================================ */
+
+/* Remove qualquer declaração @font-face antiga da Licorice e use esta */
+@font-face {
+  font-family: 'Licorice';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block; /* Evita troca de fonte enquanto carrega */
+  src: url(https://fonts.gstatic.com/s/licorice/v6/t5hjIRL6f4PTC1JN-DmC5PdX6Gk.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Força a Licorice a ser sempre suave, mesmo em tamanhos pequenos */
+h1, h2, h3, .logo, .hero__headline, .secao__titulo, .passo__titulo, .obrigado__headline {
+  font-family: 'Licorice', cursive;
+  font-weight: 400 !important; /* Impede faux bold */
+  font-style: normal;
+  letter-spacing: 0.02em; /* Dá um respiro para as letras finas */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Remove qualquer transform que possa quebrar o anti-aliasing */
+  transform: none !important;
+}
+
+/* Tamanho mínimo seguro: a Licorice fica melhor acima de 32px */
+.logo {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+}
+
+h1, .hero__headline {
+  font-size: clamp(3rem, 9vw, 5rem);
+}
+
+h2, .secao__titulo {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+h3, .passo__titulo {
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+}
+
+/* Remove sombras que geram artefatos nos traços finos */
+.hero__headline {
+  text-shadow: none;
+  /* Se quiser um destaque suave, use uma borda clara */
+  -webkit-text-stroke: 0.5px rgba(255,255,255,0.3);
+}
+
+/* Corrige possíveis distorções nos elementos tortos que tenham Licorice */
+.passo, .bullet, .depoimento-box {
+  transform: rotate(-0.5deg) translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* 3. Remove o text-shadow que pode causar artefatos na headline */
+.hero__headline {
+  text-shadow: none;
+  /* Opcional: troque por uma sombra mais suave se ainda quiser destaque */
+  /* text-shadow: 0 0 20px rgba(255,255,255,0.3); */
+}
+
+/* 4. Garante que os botões não percam qualidade ao serem transformados */
+.btn, .passo, .bullet, .depoimento-box, .form-contato, .contato__alternativo {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* Força a GPU a renderizar sem perder nitidez */
+  transform: translateZ(0);
+}
+
+/* 5. Ajuste fino na escala para telas de alta densidade (Retina/4K) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+/* --- Reset e base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+  /* Textura sutil de papel (fallback gradiente) */
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255,237,187,0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,127,0,0.08) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* --- Container geral --- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- Tipografia --- */
+h1, h2, h3, .logo {
+  font-family: 'Licorice', cursive;
+  font-weight: 400;
+  color: var(--texto);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--laranja);
+  margin: 12px auto 0;
+  border-radius: 2px;
+  transform: rotate(-1deg);
+}
+
+/* --- Botões (tortinhos) --- */
+.btn {
+  display: inline-block;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 12px 28px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  /* A mágica da irregularidade */
+  border-radius: 30% 70% 50% 50% / 50% 50% 40% 60%;
+  transform: rotate(-0.8deg);
+  box-shadow: var(--sombra-suave);
+}
+
+.btn:hover {
+  transform: rotate(0deg) scale(1.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.btn--primario {
+  background-color: var(--vermelho);
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.btn--cta {
+  background-color: var(--vermelho);
+  color: #fff;
+  font-size: 0.95rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* --- Cabeçalho --- */
+.cabecalho {
+  background-color: var(--laranja);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cabecalho--transparente {
+  background-color: rgba(255,248,230,0.95);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.cabecalho__conteudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2.2rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+  /* Pequena inclinação */
+  transform: rotate(-1deg);
+}
+
+.cabecalho--transparente .logo {
+  color: var(--laranja);
+}
+
+/* Ajuste do botão no cabeçalho */
+.cabecalho__cta {
+  padding: 10px 22px;
+  font-size: 0.9rem;
+}
+
+/* --- Hero --- */
+.hero {
+  padding: 60px 0 40px;
+  background: linear-gradient(180deg, var(--laranja) 0%, var(--fundo) 60%);
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero__headline {
+  font-size: clamp(3rem, 9vw, 5rem);
+  color: #fff;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+  margin-bottom: 16px;
+}
+
+.hero__subtitulo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #612400;
+  margin-bottom: 12px;
+}
+
+.hero__chamada {
+  font-size: 1.1rem;
+  color: #612400;
+  margin-bottom: 24px;
+}
+
+.form-email {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.form-email input[type="email"] {
+  flex: 1 1 250px;
+  padding: 14px 18px;
+  border: 2px solid var(--adesivo);
+  border-radius: 30% 70% 50% 50% / 50% 50% 40% 60%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-email input[type="email"]:focus {
+  border-color: var(--vermelho);
+}
+
+.form-email .btn {
+  flex-shrink: 0;
+}
+
+.hero__info {
+  font-size: 0.9rem;
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* Mockup e adesivos */
+.hero__imagem {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mockup {
+  max-width: 50%;
+  height: auto;
+  filter: drop-shadow(0 12px 20px rgba(0,0,0,0.15));
+  transform: rotate(2deg);
+}
+
+.adesivo {
+  position: absolute;
+  font-size: 2.5rem;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.adesivo--1 {
+  top: -10px;
+  left: 110px;
+  transform: rotate(-15deg);
+}
+
+.adesivo--2 {
+  bottom: 20px;
+  right: 110px;
+  transform: rotate(10deg);
+}
+
+/* --- Como funciona --- */
+.como-funciona {
+  padding: 80px 0;
+}
+
+.passos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.passo {
+  background-color: var(--adesivo);
+  padding: 32px 24px;
+  border-radius: 30% 70% 60% 40% / 40% 50% 50% 60%;
+  text-align: center;
+  transform: rotate(-0.5deg);
+  box-shadow: var(--sombra-suave);
+  transition: transform 0.2s;
+}
+
+.passo:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.passo:nth-child(2) {
+  transform: rotate(0.8deg);
+}
+
+.passo:nth-child(3) {
+  transform: rotate(-1deg);
+}
+
+.passo__icone {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  margin-bottom: 4px;
+}
+
+.passo__titulo {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.passo__descricao {
+  font-weight: 600;
+}
+
+/* --- Benefícios (bullets) --- */
+.beneficios {
+  padding: 80px 0;
+  background-color: rgba(255,237,187,0.3);
+}
+
+.bullets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.bullet {
+  background: #fff;
+  padding: 24px;
+  border-radius: 30% 70% 50% 50% / 50% 50% 40% 60%;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: var(--sombra-suave);
+  transform: rotate(-0.3deg);
+  transition: transform 0.2s;
+}
+
+.bullet:nth-child(even) {
+  transform: rotate(0.4deg);
+}
+
+.bullet:hover {
+  transform: rotate(0) scale(1.02);
+}
+
+.bullet__icone {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+/* --- Prova social --- */
+.prova-social {
+  padding: 80px 0;
+}
+
+.depoimento-box {
+  background: #fff;
+  padding: 40px;
+  margin: 40px auto 0;
+  max-width: 700px;
+  border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
+  box-shadow: var(--sombra-suave);
+  transform: rotate(-0.5deg);
+  position: relative;
+}
+
+.depoimento {
+  font-style: italic;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.depoimento footer {
+  margin-top: 16px;
+  font-weight: 700;
+  color: var(--laranja);
+}
+
+.depoimento__avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: -25px;
+  right: -20px;
+  transform: rotate(10deg);
+  border: 3px solid var(--adesivo);
+}
+
+.depoimento__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.numeros {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+.numero {
+  text-align: center;
+}
+
+.numero__valor {
+  display: block;
+  font-family: 'Licorice', cursive;
+  font-size: 3rem;
+  color: var(--laranja);
+  line-height: 1;
+}
+
+.numero__label {
+  font-weight: 600;
+}
+
+/* --- CTA Final --- */
+.cta-final {
+  padding: 80px 0;
+  text-align: center;
+  background: var(--adesivo);
+}
+
+.cta-final__descricao {
+  max-width: 600px;
+  margin: 0 auto 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.cta-final__info {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.cta-final .form-email {
+  justify-content: center;
+}
+
+/* --- Quem criou --- */
+.sobre {
+  padding: 80px 0;
+}
+
+.sobre__grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.foto-maiteux {
+  width: 180px;
+  height: 180px;
+  border-radius: 30% 70% 50% 50% / 50% 50% 40% 60%;
+  object-fit: cover;
+  border: 4px solid var(--laranja);
+  transform: rotate(-3deg);
+  box-shadow: var(--sombra-suave);
+}
+
+.sobre__texto p {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+/* --- Rodapé --- */
+.rodape {
+  background: var(--texto);
+  color: #fff;
+  padding: 32px 0 16px;
+  text-align: center;
+}
+
+.rodape__links {
+  margin: 16px 0;
+}
+
+.rodape__links a {
+  color: var(--adesivo);
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: 600;
+}
+
+.rodape__links a:hover {
+  text-decoration: underline;
+}
+
+.rodape__lgpd {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 16px;
+}
+
+/* --- Responsivo (mobile first já foi considerado, mas ajustes finos) --- */
+@media (max-width: 768px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .hero__imagem {
+    order: -1;
+  }
+  
+  .form-email {
+    justify-content: center;
+  }
+  
+  .sobre__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .foto-maiteux {
+    margin: 0 auto;
+  }
+
+  .cabecalho__conteudo {
+    flex-direction: column;
+    gap: 8px;
+  }
+  /* Páginas legais (Termos, Privacidade, etc.) */
+    .pagina-legal {
+    padding: 60px 0;
+    max-width: 800px;
+    margin: 0 auto;
+    }
+
+    .pagina-legal h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--laranja);
+    }
+
+    .pagina-legal .atualizacao {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 2rem;
+    }
+
+    .pagina-legal h2 {
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    }
+
+    .pagina-legal h2::after {
+    display: none;
+    }
+
+    .pagina-legal h3 {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    color: var(--texto);
+    }
+
+    .pagina-legal p, .pagina-legal li {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    }
+
+    .pagina-legal ul {
+    padding-left: 1.5rem;
+    }
+
+    .pagina-legal a {
+    color: var(--laranja);
+    font-weight: 600;
+    }
+  /* Página de contato */
+  .pagina-contato {
+    padding: 80px 0; /* Mais espaço no topo e embaixo */
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .pagina-contato h1 {
+    font-size: 3rem;
+    color: var(--laranja);
+    margin-bottom: 1.5rem; /* Mais respiro após o título */
+  }
+
+  .contato__introducao {
+    font-size: 1.1rem;
+    margin-bottom: 3rem; /* Mais distância antes do formulário */
+    line-height: 1.7; /* Entrelinha mais arejada */
+  }
+
+  .form-contato {
+    background: #fff;
+    padding: 300px; /* Mais espaço interno */
+    border-radius: 30% 70% 60% 40% / 40% 50% 50% 60%;
+    transform: rotate(-0.5deg);
+    box-shadow: var(--sombra-suave);
+    margin-bottom: 3rem; /* Mais distância antes da seção alternativa */
+  }
+
+  .campo {
+    margin-bottom: 2rem; /* Mais espaço entre os campos */
+  }
+
+  .campo label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.6rem; /* Mais espaço entre label e input */
+    font-size: 1rem;
+    color: var(--texto);
+  }
+
+  .campo input,
+  .campo textarea {
+    width: 100%;
+    padding: 14px 18px; /* Inputs um pouco maiores */
+    border: 2px solid var(--adesivo);
+    border-radius: 30% 70% 50% 50% / 50% 50% 40% 60%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+
+  .campo input:focus,
+  .campo textarea:focus {
+    border-color: var(--vermelho);
+  }
+
+  .form-contato .btn {
+    margin-top: 1rem; /* Mais espaço antes do botão */
+    width: 100%;
+    padding: 14px 28px; /* Botão mais convidativo */
+  }
+
+  .contato__alternativo {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 32px 24px; /* Mais espaço interno */
+    background: var(--adesivo);
+    border-radius: 30% 70% 50% 50% / 50% 50% 40% 60%;
+    transform: rotate(0.5deg);
+  }
+
+  .contato__alternativo p {
+    margin-bottom: 1.5rem; /* Mais espaço antes do botão de e-mail */
+    font-weight: 600;
+  }
+    /* ============================================
+    HEADLINE COM COR ESPECIAL NO MOBILE
+    ============================================ */
+  @media (max-width: 768px) {
+    .hero__headline {
+      color: #612400;
+      /* Remove o stroke branco que pode brigar com a cor escura */
+      -webkit-text-stroke: 0;
+    }
+  }
+}

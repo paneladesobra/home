@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panela de Sobra — Sua cozinha tem mais receitas do que você imagina</title>
+    <meta name="description" content="O Panela de Sobra revela o que seus ingredientes já sabem fazer juntos — e ainda guarda suas receitas de caderno como elas merecem. Participe do teste fechado.">
+    
+    <!-- Pré-carrega a Licorice para evitar FOIT -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/licorice/v6/t5hjIRL6f4PTC1JN-DmC5PdX6Gk.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Licorice&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    
+    <!-- Favicon (opcional) -->
+    <link rel="icon" href="assets/imagens/favicon.png" type="image/png">
+
+    <style>
+        @keyframes pulsar {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.7; }
+        }
+        @keyframes vapor {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-15px) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#fff8e6;display:flex;justify-content:center;align-items:center;z-index:99999;margin:0;padding:0;animation:sumir 0.5s ease 2s forwards;">
+        <div style="text-align:center;">
+            <div style="position:relative;display:inline-block;margin-bottom:1.5rem;">
+                <span style="font-size:5rem;display:block;animation:pulsar 1.2s ease-in-out infinite;">🍲</span>
+                <div style="position:absolute;top:-20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;">
+                    <span style="display:block;width:8px;height:20px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out infinite;"></span>
+                    <span style="display:block;width:8px;height:16px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.2s infinite;"></span>
+                    <span style="display:block;width:8px;height:12px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.4s infinite;"></span>
+                </div>
+            </div>
+            <p style="font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:600;color:#3d2c1e;opacity:0.8;animation:pulsar 1.5s ease-in-out infinite;">Preparando os ingredientes...</p>
+        </div>
+    </div>
+
+    <style>
+        @keyframes pulsar {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.7; }
+        }
+        @keyframes vapor {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-15px) scale(1.5); opacity: 0; }
+        }
+        @keyframes sumir {
+            to { opacity: 0; visibility: hidden; }
+        }
+    </style>
+
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+        <div class="container cabecalho__conteudo">
+            <a href="index.html" class="logo">Panela de Sobra</a>
+            <a href="#cta-final" class="btn btn--cta cabecalho__cta">Quero testar grátis</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero__grid">
+            <div class="hero__texto">
+                <h1 class="hero__headline">Sua cozinha tem mais receitas do que você imagina.</h1>
+                <p class="hero__subtitulo">O Panela de Sobra revela o que seus ingredientes já sabem fazer juntos — e ainda guarda suas receitas de caderno como elas merecem.</p>
+                <p class="hero__chamada">🧠 Menos peso, mais presença na cozinha.</p>
+                
+                <!-- Formulário do Hero -->
+                <form id="form-hero" class="form-email" action="https://formspree.io/f/xzdwblnl" method="POST">
+                    <input type="email" name="email" placeholder="Seu melhor e-mail, igual tempero secreto" required>
+                    <button type="submit" class="btn btn--primario">Quero cozinhar com mais ideias</button>
+                </form>
+                <p class="hero__info">Junte-se ao teste fechado e ganhe 3 receitas-surpresa com o que você já tem aí.</p>
+            </div>
+            <div class="hero__imagem">
+                <!-- Substitua pelo seu mockup -->
+                <img src="assets/imagens/mockup-hero.png" alt="Tela do app Panela de Sobra" class="mockup">
+                <!-- Adesivos decorativos simulados -->
+                <div class="adesivo adesivo--1">🍲</div>
+                <div class="adesivo adesivo--2">✨</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="como-funciona">
+        <div class="container">
+            <h2 class="secao__titulo">Três passos para descomplicar sua cozinha</h2>
+            <div class="passos">
+                <div class="passo">
+                    <img src="assets/imagens/icone-passo1.png" alt="" class="passo__icone">
+                    <h3 class="passo__titulo">1. Você diz o que tem</h3>
+                    <p class="passo__descricao">Abra o app e adicione os ingredientes da sua despensa.</p>
+                </div>
+                <div class="passo">
+                    <img src="assets/imagens/icone-passo2.png" alt="" class="passo__icone">
+                    <h3 class="passo__titulo">2. Ele te mostra o que fazer</h3>
+                    <p class="passo__descricao">Receitas barsileiras com o que você já tem em casa.</p>
+                </div>
+                <div class="passo">
+                    <img src="assets/imagens/icone-passo3.png" alt="" class="passo__icone">
+                    <h3 class="passo__titulo">3. Digitalize suas receitas</h3>
+                    <p class="passo__descricao">Tire uma foto da sua receita escrita a mão e veja ela no app, compartilhada com toda a comunidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios e diferenciais -->
+    <section class="beneficios">
+        <div class="container">
+            <h2 class="secao__titulo">Por que seu cérebro vai agradecer (e seu estômago também)</h2>
+            <div class="bullets">
+                <div class="bullet">
+                    <span class="bullet__icone">🧠</span>
+                    <p><strong>Espaço para o que realmente pede seu paladar.</strong> Chega de abrir a geladeira e não ter ideia. </p>
+                </div>
+                <div class="bullet">
+                    <span class="bullet__icone">📸</span>
+                    <p><strong>Digitalize aquele caderno da vó.</strong> Tire uma foto da receita manuscrita e veja o texto listado nas receitas indicadas.</p>
+                </div>
+                <div class="bullet">
+                    <span class="bullet__icone">🗓️</span>
+                    <p><strong>Cardápio da semana sempre organizado.</strong> Planeje refeições listando suas receita sfavoritas no cardápio semanal.</p>
+                </div>
+                <div class="bullet">
+                    <span class="bullet__icone">🛒</span>
+                    <p><strong>Lista de compras integrada com despensa.</strong> Com um toque, os ingredientes da sua lista de comprasvão direto para sua despensa.</p>
+                </div>
+                <div class="bullet">
+                    <span class="bullet__icone">🧺</span>
+                    <p><strong>Desperdício zero.</strong> Use o que já tem, economize dinheiro e ajude o planeta, uma panela por vez.</p>
+                </div>
+                <div class="bullet">
+                    <span class="bullet__icone">🎨</span>
+                    <p><strong>Feito com afeto.</strong> Um app que parece ter sido feito na cozinha.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prova social -->
+    <section class="prova-social">
+        <div class="container">
+            <h2 class="secao__titulo">Quem testou, relaxou na cozinha</h2>
+            <div class="depoimento-box">
+                <blockquote class="depoimento">
+                    <p>“Diminuiu minha carga mental”</p>
+                    <footer>— Déia, primeira testadora do Panela de Sobra</footer>
+                </blockquote>
+                <div class="depoimento__avatar">
+                    <img src="assets/imagens/depoimento-avatar.png" alt="Avatar da testadora">
+                </div>
+            </div>
+            <div class="numeros">
+                <div class="numero">
+                    <span class="numero__valor">+ de 600</span>
+                    <span class="numero__label">receitas cadastradas</span>
+                </div>
+                <div class="numero">
+                    <span class="numero__valor">📖</span>
+                    <span class="numero__label">Em breve, novas receitas de livros parceiros</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA intermediário -->
+    <section id="cta-final" class="cta-final">
+        <div class="container">
+            <h2 class="secao__titulo">Pronta para cozinhar com o que já é seu?</h2>
+            <p class="cta-final__descricao">Entre para o teste fechado, tenha acesso ao app e dê suas opiniões do que podemos melhorar.</p>
+            <form id="form-cta" class="form-email" action="https://formspree.io/f/xzdwblnl" method="POST">
+                <input type="email" name="email" placeholder="     Seu melhor e-mail, igual tempero secreto" required>
+                <button type="submit" class="btn btn--primario">Quero cozinhar com mais ideias</button>
+            </form>
+            <p class="cta-final__info">Você fará parte do grupo que está moldando o app. Sua opinião será ouvida.</p>
+        </div>
+    </section>
+
+    <!-- Quem criou -->
+    <section class="sobre">
+        <div class="container sobre__grid">
+            <div class="sobre__imagem">
+                <img src="assets/imagens/maiteux-foto.png" alt="Maiteux, criadora do Panela de Sobra" class="foto-maiteux">
+            </div>
+            <div class="sobre__texto">
+                <h2 class="secao__titulo">Prazer, Maiteux — a cozinheira de ideias</h2>
+                <p>Maiteux acredita que ninguém deveria precisar de um diploma de chef para comer bem. Depois de anos vendo amigos e amigas estressados na cozinha, resolveu criar um app que cuidasse da parte chata e deixasse só o gostoso: o sabor.</p>
+                <p>O Panela de Sobra nasceu da vontade de simplificar, acolher e dar um jeitinho gostoso de aproveitar cada ingrediente. Hoje, ela lidera o projeto entre código, panelas e muitos testes de sabor.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container rodape__conteudo">
+            <p class="rodape__copy">© 2026 Panela de Sobra — Todos os direitos reservados. Feito com ❤️ e muitas panelas.</p>
+            <nav class="rodape__links">
+                <a href="contato.html">Contato</a>
+                <a href="termos-de-uso.html">Termos de Uso</a>
+                <a href="politica-de-privacidade.html">Política de Privacidade</a>
+            </nav>
+            <p class="rodape__lgpd">Respeitamos sua privacidade. Seus dados serão usados apenas para comunicação do teste fechado e não serão compartilhados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript externo -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

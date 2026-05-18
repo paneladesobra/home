@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Panela de Sobra</title>
+    <meta name="description" content="Fale com a gente! Dúvidas, sugestões ou um oi para a Maiteux.">
+    
+    <!-- Pré-carrega a Licorice para evitar FOIT -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/licorice/v6/t5hjIRL6f4PTC1JN-DmC5PdX6Gk.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Licorice&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <link rel="icon" href="assets/imagens/favicon.png" type="image/png">
+<style>
+        @keyframes pulsar {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.7; }
+        }
+        @keyframes vapor {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-15px) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#fff8e6;display:flex;justify-content:center;align-items:center;z-index:99999;margin:0;padding:0;animation:sumir 0.5s ease 2s forwards;">
+        <div style="text-align:center;">
+            <div style="position:relative;display:inline-block;margin-bottom:1.5rem;">
+                <span style="font-size:5rem;display:block;animation:pulsar 1.2s ease-in-out infinite;">🍲</span>
+                <div style="position:absolute;top:-20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;">
+                    <span style="display:block;width:8px;height:20px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out infinite;"></span>
+                    <span style="display:block;width:8px;height:16px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.2s infinite;"></span>
+                    <span style="display:block;width:8px;height:12px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.4s infinite;"></span>
+                </div>
+            </div>
+            <p style="font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:600;color:#3d2c1e;opacity:0.8;animation:pulsar 1.5s ease-in-out infinite;">Preparando os ingredientes...</p>
+        </div>
+    </div>
+
+    <style>
+        @keyframes pulsar {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.7; }
+        }
+        @keyframes vapor {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-15px) scale(1.5); opacity: 0; }
+        }
+        @keyframes sumir {
+            to { opacity: 0; visibility: hidden; }
+        }
+    </style>
+
+    <header class="cabecalho">
+        <div class="container cabecalho__conteudo">
+            <a href="index.html" class="logo">Panela de Sobra</a>
+        </div>
+    </header>
+
+    <main class="pagina-contato">
+        <div class="container">
+            <h1>Vamos bater um papo?</h1>
+            <p class="contato__introducao">Tem alguma dúvida, sugestão, receita que não quer digitalizar sozinho ou simplesmente quer dar um "oi" para a Maiteux? É só preencher o formulário abaixo ou mandar um e-mail direto para <a href="mailto:paneladesobra@gmail.com">paneladesobra@gmail.com</a>. Respondemos rapidinho, igual bolo no forno.</p>
+            
+            <!-- Formulário de contato -->
+            <form id="form-contato" class="form-contato" action="https://formspree.io/f/xeedqyew" method="POST">
+                <div class="campo">
+                    <label for="nome">Seu nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Como você gosta de ser chamado(a)" required>
+                </div>
+                <div class="campo">
+                    <label for="email">Seu e-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Para podermos responder" required>
+                </div>
+                <div class="campo">
+                    <label for="assunto">Assunto</label>
+                    <input type="text" id="assunto" name="assunto" placeholder="Ex: Sugestão de receita, dúvida sobre o app...">
+                </div>
+                <div class="campo">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="6" placeholder="Conte o que está pensando ou pergunte o que quiser." required></textarea>
+                </div>
+                <button type="submit" class="btn btn--primario">Enviar mensagem</button>
+            </form>
+            
+            <div class="contato__alternativo">
+                <p>Prefere escrever do seu jeito? Mande um e-mail direto para:</p>
+                <a href="mailto:paneladesobra@gmail.com" class="btn btn--cta">paneladesobra@gmail.com</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <div class="container rodape__conteudo">
+            <p class="rodape__copy">© 2026 Panela de Sobra — Todos os direitos reservados. Feito com ❤️ e muitas panelas.</p>
+            <nav class="rodape__links">
+                <a href="contato.html">Contato</a>
+                <a href="termos-de-uso.html">Termos de Uso</a>
+                <a href="politica-de-privacidade.html">Política de Privacidade</a>
+            </nav>
+            <p class="rodape__lgpd">Respeitamos sua privacidade. Seus dados serão usados apenas para comunicação do teste fechado e não serão compartilhados.</p>
+        </div>
+    </footer>
+    
+    <!-- Script para o envio do formulário (reaproveita a lógica do script.js) -->
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Adaptação para o formulário de contato com campos extras
+        document.addEventListener('DOMContentLoaded', function() {
+            const formContato = document.getElementById('form-contato');
+            if (formContato) {
+                formContato.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const botao = formContato.querySelector('button[type="submit"]');
+                    const textoOriginal = botao.textContent;
+                    botao.textContent = 'Enviando...';
+                    botao.disabled = true;
+                    botao.style.opacity = '0.7';
+                    
+                    fetch(formContato.getAttribute('action'), {
+                        method: 'POST',
+                        body: new FormData(formContato),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(function(response) {
+                        if (response.ok) {
+                            alert('Mensagem enviada com sucesso! Responderemos em breve.');
+                            formContato.reset();
+                        } else {
+                            throw new Error('Falha no envio');
+                        }
+                    })
+                    .catch(function(error) {
+                        console.warn('Erro:', error);
+                        alert('Ops, ocorreu um erro. Mas não se preocupe, você também pode nos mandar um e-mail diretamente.');
+                    })
+                    .finally(function() {
+                        botao.textContent = textoOriginal;
+                        botao.disabled = false;
+                        botao.style.opacity = '1';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

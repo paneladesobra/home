@@ -581,6 +581,85 @@ h2::after {
   margin-top: 16px;
 }
 
+/* Página de contato */
+.pagina-contato {
+  padding: 80px 0; /* Mais espaço no topo e embaixo */
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pagina-contato h1 {
+  font-size: 3rem;
+  color: var(--laranja);
+  margin-bottom: 1.5rem; /* Mais respiro após o título */
+}
+
+.contato__introducao {
+  font-size: 1.1rem;
+  margin-bottom: 3rem; /* Mais distância antes do formulário */
+  line-height: 1.7; /* Entrelinha mais arejada */
+}
+
+.form-contato {
+  background: #fff;
+  padding: 120px; /* Mais espaço interno */
+  border-radius: 30% 70% 60% 40% / 40% 50% 50% 60%;
+  transform: rotate(-0.5deg);
+  box-shadow: var(--sombra-suave);
+  margin-bottom: 3rem; /* Mais distância antes da seção alternativa */
+}
+
+.campo {
+  margin-bottom: 2rem; /* Mais espaço entre os campos */
+}
+
+.campo label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.6rem; /* Mais espaço entre label e input */
+  font-size: 1rem;
+  color: var(--texto);
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  padding: 14px 18px; /* Inputs um pouco maiores */
+  border: 2px solid var(--adesivo);
+  border-radius: 30% 70% 50% 50% / 50% 50% 40% 60%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  border-color: var(--vermelho);
+}
+
+.form-contato .btn {
+  margin-top: 1rem; /* Mais espaço antes do botão */
+  width: 100%;
+  padding: 14px 28px; /* Botão mais convidativo */
+}
+
+.contato__alternativo {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 32px 24px; /* Mais espaço interno */
+  background: var(--adesivo);
+  border-radius: 30% 70% 50% 50% / 50% 50% 40% 60%;
+  transform: rotate(0.5deg);
+}
+
+.contato__alternativo p {
+  margin-bottom: 1.5rem; /* Mais espaço antes do botão de e-mail */
+  font-weight: 600;
+}
+
 /* --- Responsivo (mobile first já foi considerado, mas ajustes finos) --- */
 @media (max-width: 768px) {
   .hero__grid {
@@ -677,19 +756,6 @@ h2::after {
     line-height: 1.7; /* Entrelinha mais arejada */
   }
 
-  .form-contato {
-    background: #fff;
-    padding: 300px; /* Mais espaço interno */
-    border-radius: 30% 70% 60% 40% / 40% 50% 50% 60%;
-    transform: rotate(-0.5deg);
-    box-shadow: var(--sombra-suave);
-    margin-bottom: 3rem; /* Mais distância antes da seção alternativa */
-  }
-
-  .campo {
-    margin-bottom: 2rem; /* Mais espaço entre os campos */
-  }
-
   .campo label {
     display: block;
     font-weight: 700;
@@ -698,29 +764,9 @@ h2::after {
     color: var(--texto);
   }
 
-  .campo input,
-  .campo textarea {
-    width: 100%;
-    padding: 14px 18px; /* Inputs um pouco maiores */
-    border: 2px solid var(--adesivo);
-    border-radius: 30% 70% 50% 50% / 50% 50% 40% 60%;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem;
-    background: #fff;
-    outline: none;
-    transition: border-color 0.2s;
-    resize: vertical;
-  }
-
   .campo input:focus,
   .campo textarea:focus {
     border-color: var(--vermelho);
-  }
-
-  .form-contato .btn {
-    margin-top: 1rem; /* Mais espaço antes do botão */
-    width: 100%;
-    padding: 14px 28px; /* Botão mais convidativo */
   }
 
   .contato__alternativo {
@@ -736,14 +782,34 @@ h2::after {
     margin-bottom: 1.5rem; /* Mais espaço antes do botão de e-mail */
     font-weight: 600;
   }
-    /* ============================================
-    HEADLINE COM COR ESPECIAL NO MOBILE
-    ============================================ */
-  @media (max-width: 768px) {
-    .hero__headline {
-      color: #612400;
-      /* Remove o stroke branco que pode brigar com a cor escura */
-      -webkit-text-stroke: 0;
-    }
+
+  .hero__headline {
+    color: #612400;
+    /* Remove o stroke branco que pode brigar com a cor escura */
+    -webkit-text-stroke: 0;
+  }
+
+   .form-contato {
+    padding: 24px 16px;       /* Menos padding lateral para sobrar espaço */
+    transform: none;          /* Remove a rotação */
+    border-radius: 20px;      /* Bordas mais simples e uniformes */
+    margin-bottom: 2rem;
+  }
+
+  .campo {
+    margin-bottom: 1.2rem;    /* Espaçamento entre campos mais enxuto */
+  }
+
+  .campo input,
+  .campo textarea {
+    width: 100%;              /* Garante que ocupem toda a largura */
+    box-sizing: border-box;   /* Inclui borda e padding na largura */
+    font-size: 16px;          /* Tamanho mínimo para evitar zoom no iOS */
+  }
+
+  .form-contato .btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
   }
 }

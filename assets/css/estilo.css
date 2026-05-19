@@ -460,13 +460,13 @@ h2::after {
 }
 
 .depoimento__avatar {
-  width: 70px;
-  height: 70px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   overflow: hidden;
   position: absolute;
   top: -25px;
-  right: -20px;
+  right: -35px;
   transform: rotate(10deg);
   border: 3px solid var(--adesivo);
 }

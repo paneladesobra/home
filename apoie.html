@@ -15,8 +15,35 @@
     <link rel="stylesheet" href="assets/css/vakinha.css">
     
     <link rel="icon" href="assets/imagens/favicon.png" type="image/png">
+    <style>
+        @keyframes pulsar {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.7; }
+        }
+        @keyframes vapor {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-15px) scale(1.5); opacity: 0; }
+        }
+        @keyframes sumir {
+            to { opacity: 0; visibility: hidden; }
+        }
+    </style>
 </head>
 <body>
+    <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#fff8e6;display:flex;justify-content:center;align-items:center;z-index:99999;margin:0;padding:0;animation:sumir 0.5s ease 2s forwards;">
+        <div style="text-align:center;">
+            <div style="position:relative;display:inline-block;margin-bottom:1.5rem;">
+                <span style="font-size:5rem;display:block;animation:pulsar 1.2s ease-in-out infinite;">🍲</span>
+                <div style="position:absolute;top:-20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;">
+                    <span style="display:block;width:8px;height:20px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out infinite;"></span>
+                    <span style="display:block;width:8px;height:16px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.2s infinite;"></span>
+                    <span style="display:block;width:8px;height:12px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.4s infinite;"></span>
+                </div>
+            </div>
+            <p style="font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:600;color:#3d2c1e;opacity:0.8;animation:pulsar 1.5s ease-in-out infinite;">Preparando os ingredientes...</p>
+        </div>
+    </div>
+
     <!-- Cabeçalho -->
     <header class="cabecalho">
         <div class="container cabecalho__conteudo">

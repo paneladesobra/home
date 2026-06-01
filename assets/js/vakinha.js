@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle custom input field
     radios.forEach(radio => {
         radio.addEventListener('change', (e) => {
-            if(e.target.value === 'outro') {
+            if (e.target.value === 'outro') {
                 inputOutroContainer.style.display = 'block';
             } else {
                 inputOutroContainer.style.display = 'none';
@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Integração Real: Chamada para Cloud Function (gerarPixVakinha)
     btnDoar.addEventListener('click', async () => {
         let valor = document.querySelector('input[name="valor_doacao"]:checked')?.value;
-        if(valor === 'outro') {
+        if (valor === 'outro') {
             valor = document.getElementById('valor-personalizado').value;
         }
 
-        if(!valor || valor <= 0) {
+        if (!valor || valor <= 0) {
             alert('Por favor, selecione ou digite um valor válido.');
             return;
         }
@@ -45,26 +45,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const payload = resultData.result;
-            
+
             // Injetando no HTML
             document.getElementById('pix-copia-cola').value = payload.qr_code;
             document.getElementById('pix-qrcode-placeholder').innerHTML = `<img src="data:image/png;base64,${payload.qr_code_base64}" alt="QR Code PIX" style="width: 150px; height: 150px; border-radius: 8px;">`;
-            
+
             btnDoar.style.display = 'none';
             pixArea.style.display = 'block';
 
             // Dica de UX para o doador
-            setTimeout(() => alert('Pronto! Pague o PIX e a barra verde vai subir sozinha!'), 1000);
+            setTimeout(() => alert('QRcode gerado! Agora é só copiar o código, colar na área PIX do seu banco e efetuar o pagamento!'), 1000);
 
         } catch (err) {
             console.error(err);
-            
+
             if (err.message === 'INTERNAL') {
                 alert('Erro Interno no Servidor (500).\n\nMaiteux, a requisição chegou na Cloud Function da Bia, mas a função "gerarPixVakinha" quebrou durante a execução. O Firebase esconde o motivo por segurança (chamando apenas de INTERNAL).\n\nCausas mais prováveis:\n1. O secret MERCADOPAGO_ACCESS_TOKEN não foi configurado no Secret Manager do GCP.\n2. A API do Mercado Pago recusou a transação de teste.\n\nPor favor, olhe os logs dessa função no painel do Firebase para ver o erro exato!');
             } else {
                 alert('Erro ao gerar o PIX: ' + err.message);
             }
-            
+
             btnDoar.innerText = 'Gerar PIX';
             btnDoar.disabled = false;
         }
@@ -82,13 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
             semanas = 3 + metasExtras;
             progressoBarra = restante % 500;
             metaAtual = 500;
-            
+
             document.getElementById('meta-titulo-texto').innerText = 'Meta Atual: Mais 1 semana!';
             document.getElementById('meta-desc-texto').innerText = 'Precisamos de R$ 500 para garantir a próxima semana de servidores.';
         } else {
             progressoBarra = totalArrecadado;
             metaAtual = 1500;
-            
+
             document.getElementById('meta-titulo-texto').innerText = 'Meta Atual: 3 Semanas de operação!';
             document.getElementById('meta-desc-texto').innerText = 'Precisamos de R$ 1.500 para cobrir os custos iniciais dos servidores.';
         }
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function checarProgresso() {
         try {
             const res = await fetch('https://firestore.googleapis.com/v1/projects/panela-de-sobra/databases/(default)/documents/vakinha/status');
-            
+
             if (res.status === 404) {
                 atualizarProgresso(0);
                 return;

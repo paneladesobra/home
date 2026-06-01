@@ -105,6 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
     async function checarProgresso() {
         try {
             const res = await fetch('https://firestore.googleapis.com/v1/projects/panela-de-sobra/databases/(default)/documents/vakinha/status');
+            
+            if (res.status === 404) {
+                atualizarProgresso(0);
+                return;
+            }
+
             const data = await res.json();
             if (data.fields && data.fields.totalArrecadado) {
                 atualizarProgresso(Number(data.fields.totalArrecadado.integerValue || data.fields.totalArrecadado.doubleValue || 0));

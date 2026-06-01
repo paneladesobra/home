@@ -58,7 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (err) {
             console.error(err);
-            alert('Erro ao gerar o PIX: ' + err.message);
+            
+            if (err.message === 'INTERNAL') {
+                alert('Erro Interno no Servidor (500).\n\nMaiteux, a requisição chegou na Cloud Function da Bia, mas a função "gerarPixVakinha" quebrou durante a execução. O Firebase esconde o motivo por segurança (chamando apenas de INTERNAL).\n\nCausas mais prováveis:\n1. O secret MERCADOPAGO_ACCESS_TOKEN não foi configurado no Secret Manager do GCP.\n2. A API do Mercado Pago recusou a transação de teste.\n\nPor favor, olhe os logs dessa função no painel do Firebase para ver o erro exato!');
+            } else {
+                alert('Erro ao gerar o PIX: ' + err.message);
+            }
+            
             btnDoar.innerText = 'Gerar PIX';
             btnDoar.disabled = false;
         }

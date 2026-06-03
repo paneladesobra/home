@@ -159,7 +159,18 @@
                         <input type="number" id="valor-personalizado" min="1" step="1" placeholder="Ex: 50">
                     </div>
 
-                    <button class="btn btn--primario btn--doar" id="btn-doar">Gerar PIX</button>
+                    <div class="vakinha-input-nome" style="margin-top: 15px;">
+                        <label for="nome-apoiador"
+                            style="font-family: 'Nunito', sans-serif; font-weight: 600; color: #43411b; display: block;">Seu
+                            Nome (Opcional):</label>
+                        <input type="text" id="nome-apoiador" placeholder="Nome que vai para o quadro de apoidores"
+                            style="width: 100%; padding: 12px; margin-top: 5px; border-radius: 8px; border: 1px solid #C19A6B; font-family: 'Nunito', sans-serif; font-size: 1rem; box-sizing: border-box;">
+                    </div>
+
+                    <button class="btn btn--doar" id="btn-doar"
+                        style="background: url('assets/imagens/botaoLaranja.png') no-repeat center center; background-size: contain; width: 100%; max-width: 320px; height: 120px; border: none; border-radius: 0; font-size: 1.5rem; font-weight: bold; color: #FFF; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; margin: 20px auto; cursor: pointer; background-color: transparent; box-shadow: none; overflow: visible; padding: 0;">
+                        gerar QRcode
+                    </button>
 
                     <div class="vakinha-pix-area" id="pix-area" style="display: none;">
                         <p class="pix-instrucao">Quase lá! Escaneie o QR Code ou copie o código abaixo:</p>
@@ -190,6 +201,20 @@
                         <div class="meta-valores">
                             <span id="valor-arrecadado">R$ 0</span>
                             <span id="valor-objetivo">R$ 500</span>
+                        </div>
+                    </div>
+
+                    <!-- Lista de Apoiadores -->
+                    <div class="vakinha-apoiadores"
+                        style="margin-top: 30px; background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #C19A6B; box-shadow: 4px 4px 0px #C19A6B;">
+                        <h3 class="meta-titulo"
+                            style="font-size: 1.3rem; border-bottom: 1px solid #E4E4E4; padding-bottom: 10px; margin-bottom: 15px;">
+                            Últimos Apoiadores 💛</h3>
+                        <div id="lista-apoiadores" style="max-height: 250px; overflow-y: auto;">
+                            <!-- Itens injetados via JS -->
+                            <p
+                                style="color: #8B6F47; font-family: 'Nunito', sans-serif; font-size: 1rem; text-align: center; margin: 20px 0;">
+                                Carregando apoiadores...</p>
                         </div>
                     </div>
                 </div>

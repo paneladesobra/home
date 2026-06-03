@@ -27,6 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Por favor, selecione ou digite um valor válido.');
             return;
         }
+        
+        let nomeDoador = document.getElementById('nome-apoiador')?.value?.trim();
+        if (!nomeDoador) {
+            nomeDoador = 'Anônimo';
+        }
 
         btnDoar.innerText = 'Gerando PIX...';
         btnDoar.disabled = true;
@@ -36,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('https://southamerica-east1-panela-de-sobra.cloudfunctions.net/gerarPixVakinha', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ data: { valor: Number(valor) } })
+                body: JSON.stringify({ data: { valor: Number(valor), nome: nomeDoador } })
             });
             const resultData = await response.json();
 
@@ -128,8 +133,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Checa ao carregar a página e fica monitorando
     checarProgresso();
+    carregarApoiadores();
     setInterval(checarProgresso, 5000);
+    setInterval(carregarApoiadores, 15000); // Polling menos frequente para a lista
 });
+
+// Busca e renderiza os apoiadores
+async function carregarApoiadores() {
+    try {
+        const res = await fetch('https://firestore.googleapis.com/v1/projects/panela-de-sobra/databases/(default)/documents/vakinha_transacoes');
+        
+        if (res.status !== 200) {
+            throw new Error('Falha ou permissão negada');
+        }
+
+        const data = await res.json();
+        const listaDiv = document.getElementById('lista-apoiadores');
+        listaDiv.innerHTML = ''; // limpa loading
+        
+        if (!data.documents || data.documents.length === 0) {
+            listaDiv.innerHTML = '<p style="color: #8B6F47; font-family: \'Nunito\', sans-serif; font-size: 1rem; text-align: center; margin: 20px 0;">Seja o primeiro a apoiar! 💛</p>';
+            return;
+        }
+
+        // Filtra os que tem status approved
+        let transacoes = data.documents
+            .map(doc => {
+                const f = doc.fields;
+                return {
+                    nome: f.nome?.stringValue || f.metadata?.mapValue?.fields?.doador?.stringValue || 'Anônimo',
+                    valor: Number(f.amount?.integerValue || f.amount?.doubleValue || 0),
+                    status: f.status?.stringValue,
+                    data: f.data?.stringValue || ''
+                };
+            })
+            .filter(t => t.status === 'approved')
+            .sort((a, b) => new Date(b.data) - new Date(a.data)); // Mais recentes primeiro
+
+        if (transacoes.length === 0) {
+            listaDiv.innerHTML = '<p style="color: #8B6F47; font-family: \'Nunito\', sans-serif; font-size: 1rem; text-align: center; margin: 20px 0;">Nenhuma doação processada ainda.</p>';
+            return;
+        }
+
+        transacoes.forEach(t => {
+            const item = document.createElement('div');
+            item.style.cssText = 'display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #E4E4E4;';
+            
+            const nomeSpan = document.createElement('span');
+            nomeSpan.style.cssText = 'font-family: \'Nunito\', sans-serif; font-weight: 600; color: #43411b;';
+            nomeSpan.innerText = t.nome;
+
+            const valorSpan = document.createElement('span');
+            valorSpan.style.cssText = 'font-family: \'Nunito\', sans-serif; font-weight: 700; color: #ff7f00;';
+            valorSpan.innerText = `R$ ${t.valor.toFixed(2).replace('.', ',')}`;
+
+            item.appendChild(nomeSpan);
+            item.appendChild(valorSpan);
+            listaDiv.appendChild(item);
+        });
+        
+    } catch (e) {
+        // Se a API ainda não existir ou der 403 (antes da Bia configurar), silenciamos
+        const listaDiv = document.getElementById('lista-apoiadores');
+        listaDiv.innerHTML = '<p style="color: #8B6F47; font-family: \'Nunito\', sans-serif; font-size: 1rem; text-align: center; margin: 20px 0;">Preparando a lista de apoiadores...</p>';
+    }
+}
 
 function copiarPix() {
     const input = document.getElementById('pix-copia-cola');

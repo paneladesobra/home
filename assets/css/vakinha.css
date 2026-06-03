@@ -177,3 +177,19 @@
     width: 100%;
     font-family: 'Nunito', sans-serif;
 }
+
+/* Scrollbar customizada para a lista de apoiadores */
+#lista-apoiadores::-webkit-scrollbar {
+    width: 6px;
+}
+#lista-apoiadores::-webkit-scrollbar-track {
+    background: #FFF8E7;
+    border-radius: 4px;
+}
+#lista-apoiadores::-webkit-scrollbar-thumb {
+    background: #C19A6B;
+    border-radius: 4px;
+}
+#lista-apoiadores::-webkit-scrollbar-thumb:hover {
+    background: #FA6D3C;
+}

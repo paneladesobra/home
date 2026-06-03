@@ -1,46 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apoie o Panela de Sobra</title>
     <meta name="description" content="Apoie o desenvolvimento do Panela de Sobra e ajude a manter o app no ar.">
-    
-    <link rel="preload" href="https://fonts.gstatic.com/s/licorice/v6/t5hjIRL6f4PTC1JN-DmC5PdX6Gk.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <link rel="preload" href="https://fonts.gstatic.com/s/licorice/v6/t5hjIRL6f4PTC1JN-DmC5PdX6Gk.woff2" as="font"
+        type="font/woff2" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Licorice&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Licorice&family=Nunito:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/estilo.css">
     <link rel="stylesheet" href="assets/css/vakinha.css">
-    
+
     <link rel="icon" href="assets/imagens/favicon.png" type="image/png">
     <style>
         @keyframes pulsar {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.08); opacity: 0.7; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.08);
+                opacity: 0.7;
+            }
         }
+
         @keyframes vapor {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
-            50% { transform: translateY(-15px) scale(1.5); opacity: 0; }
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: translateY(-15px) scale(1.5);
+                opacity: 0;
+            }
         }
+
         @keyframes sumir {
-            to { opacity: 0; visibility: hidden; }
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#fff8e6;display:flex;justify-content:center;align-items:center;z-index:99999;margin:0;padding:0;animation:sumir 0.5s ease 2s forwards;">
+    <div
+        style="position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#fff8e6;display:flex;justify-content:center;align-items:center;z-index:99999;margin:0;padding:0;animation:sumir 0.5s ease 2s forwards;">
         <div style="text-align:center;">
             <div style="position:relative;display:inline-block;margin-bottom:1.5rem;">
                 <span style="font-size:5rem;display:block;animation:pulsar 1.2s ease-in-out infinite;">🍲</span>
                 <div style="position:absolute;top:-20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;">
-                    <span style="display:block;width:8px;height:20px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out infinite;"></span>
-                    <span style="display:block;width:8px;height:16px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.2s infinite;"></span>
-                    <span style="display:block;width:8px;height:12px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.4s infinite;"></span>
+                    <span
+                        style="display:block;width:8px;height:20px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out infinite;"></span>
+                    <span
+                        style="display:block;width:8px;height:16px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.2s infinite;"></span>
+                    <span
+                        style="display:block;width:8px;height:12px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.4s infinite;"></span>
                 </div>
             </div>
-            <p style="font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:600;color:#3d2c1e;opacity:0.8;animation:pulsar 1.5s ease-in-out infinite;">Preparando os ingredientes...</p>
+            <p
+                style="font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:600;color:#3d2c1e;opacity:0.8;animation:pulsar 1.5s ease-in-out infinite;">
+                Preparando os ingredientes...</p>
         </div>
     </div>
 
@@ -49,8 +82,10 @@
         <div class="container cabecalho__conteudo">
             <a href="index.html" class="logo">Panela de Sobra</a>
             <div class="cabecalho__botoes" style="display: flex; gap: 10px; align-items: center;">
-                <a href="https://play.google.com/store/apps/details?id=com.paneladesobra" target="_blank" style="display: inline-block;">
-                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png" alt="Disponível no Google Play" style="height: 48px;">
+                <a href="https://play.google.com/store/apps/details?id=br.com.paneladesobra.app" target="_blank"
+                    style="display: inline-block;">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png"
+                        alt="Disponível no Google Play" style="height: 48px;">
                 </a>
             </div>
         </div>
@@ -60,17 +95,18 @@
         <section class="vakinha-hero">
             <div class="container">
                 <h1 class="hero__headline" style="color: #612400;">Mantenha a panela no fogo!</h1>
-                <p class="hero__subtitulo">Cada contribuição ajuda a pagar os servidores e me dá mais tempo para codar o app.</p>
+                <p class="hero__subtitulo">Cada contribuição ajuda a pagar os servidores e me dá mais tempo para
+                    desenvolver o app.</p>
             </div>
         </section>
 
         <section class="vakinha-widget-section">
             <div class="container vakinha-grid">
-                
+
                 <!-- Coluna 1: O Widget de Pagamento -->
                 <div class="vakinha-widget">
                     <h2 class="vakinha-titulo">Escolha um valor para apoiar (PIX)</h2>
-                    
+
                     <div class="vakinha-opcoes">
                         <label class="vakinha-opcao">
                             <input type="radio" name="valor_doacao" value="7">
@@ -117,7 +153,9 @@
                     </div>
 
                     <div class="vakinha-input-outro" id="input-outro-container" style="display: none;">
-                        <label for="valor-personalizado" style="font-family: 'Nunito', sans-serif; font-weight: 600; color: #43411b;">Digite o valor (R$):</label>
+                        <label for="valor-personalizado"
+                            style="font-family: 'Nunito', sans-serif; font-weight: 600; color: #43411b;">Digite o valor
+                            (R$):</label>
                         <input type="number" id="valor-personalizado" min="1" step="1" placeholder="Ex: 50">
                     </div>
 
@@ -126,10 +164,12 @@
                     <div class="vakinha-pix-area" id="pix-area" style="display: none;">
                         <p class="pix-instrucao">Quase lá! Escaneie o QR Code ou copie o código abaixo:</p>
                         <div class="pix-qrcode" id="pix-qrcode-placeholder">
-                            <img src="assets/imagens/favicon.png" alt="QR Code PIX" style="width: 150px; height: 150px; background: #e4e4e4; border-radius: 8px;">
+                            <img src="assets/imagens/favicon.png" alt="QR Code PIX"
+                                style="width: 150px; height: 150px; background: #e4e4e4; border-radius: 8px;">
                         </div>
                         <input type="text" id="pix-copia-cola" value="00020126580014br.gov.bcb.pix..." readonly>
-                        <button class="btn btn--secundario" id="btn-copiar" onclick="copiarPix()">Copiar Código PIX</button>
+                        <button class="btn btn--secundario" id="btn-copiar" onclick="copiarPix()">Copiar Código
+                            PIX</button>
                     </div>
                 </div>
 
@@ -141,8 +181,9 @@
 
                     <div class="vakinha-meta-box">
                         <h3 class="meta-titulo" id="meta-titulo-texto">Meta Atual: 3 Semanas de operação!</h3>
-                        <p class="meta-desc" id="meta-desc-texto">Precisamos de R$ 1.500 para cobrir os custos iniciais dos servidores.</p>
-                        
+                        <p class="meta-desc" id="meta-desc-texto">Precisamos de R$ 1.500 para cobrir os custos iniciais
+                            dos servidores.</p>
+
                         <div class="barra-container">
                             <div class="barra-progresso" id="barra-progresso" style="width: 0%;"></div>
                         </div>
@@ -160,11 +201,15 @@
         <section class="vakinha-video" style="text-align: center; margin: 60px 0;">
             <div class="container">
                 <h2 class="secao__titulo" style="color: #612400; margin-bottom: 20px;">Por que estamos arrecadando?</h2>
-                <p style="margin-bottom: 20px; color: #8B6F47;">Assista ao vídeo e entenda como sua contribuição ajuda a manter o Panela de Sobra no ar.</p>
-                <div style="max-width: 800px; margin: 0 auto; border-radius: 12px; overflow: hidden; border: 2px solid #C19A6B; box-shadow: 4px 4px 0px #C19A6B;">
+                <p style="margin-bottom: 20px; color: #8B6F47;">Assista ao vídeo e entenda como sua contribuição ajuda a
+                    manter o Panela de Sobra no ar.</p>
+                <div
+                    style="max-width: 800px; margin: 0 auto; border-radius: 12px; overflow: hidden; border: 2px solid #C19A6B; box-shadow: 4px 4px 0px #C19A6B;">
                     <!-- Placeholder de vídeo (YouTube embed iframe) -->
                     <div style="position: relative; padding-bottom: 56.25%; height: 0; background: #E4E4E4;">
-                        <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #8B6F47; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 1.2rem;">[Placeholder: Vídeo da Campanha]</span>
+                        <span
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #8B6F47; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 1.2rem;">[Placeholder:
+                            Vídeo da Campanha]</span>
                     </div>
                 </div>
             </div>
@@ -174,7 +219,8 @@
     <!-- Rodapé -->
     <footer class="rodape">
         <div class="container rodape__conteudo">
-            <p class="rodape__copy">© 2026 Panela de Sobra — Todos os direitos reservados. Feito com ❤️ e muitas panelas.</p>
+            <p class="rodape__copy">© 2026 Panela de Sobra — Todos os direitos reservados. Feito com ❤️ e muitas
+                panelas.</p>
             <nav class="rodape__links">
                 <a href="contato.html">Contato</a>
                 <a href="termos-de-uso.html">Termos de Uso</a>
@@ -185,4 +231,5 @@
 
     <script src="assets/js/vakinha.js"></script>
 </body>
+
 </html>

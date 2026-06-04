@@ -161,7 +161,7 @@ async function carregarApoiadores() {
             .map(doc => {
                 const f = doc.fields;
                 return {
-                    nome: f.nome?.stringValue || f.metadata?.mapValue?.fields?.doador?.stringValue || 'Anônimo',
+                    nome: f.nomeDoador?.stringValue || f.nome?.stringValue || f.metadata?.mapValue?.fields?.doador?.stringValue || 'Anônimo',
                     valor: Number(f.amount?.integerValue || f.amount?.doubleValue || 0),
                     status: f.status?.stringValue,
                     data: f.data?.stringValue || ''

@@ -815,3 +815,122 @@ h2::after {
     font-size: 1rem;
   }
 }
+
+/* ========================================= */
+/* ESTILOS DA PÁGINA DE ROADMAP (TIMELINE)   */
+/* ========================================= */
+.hero-roadmap {
+    padding: 60px 0 20px;
+    text-align: center;
+}
+.title-licorice {
+    font-family: 'Licorice', cursive;
+    font-weight: 400;
+}
+.roadmap-section {
+    padding: 20px 0 80px;
+}
+.timeline-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 20px;
+    border-left: 3px solid #ffcca3;
+}
+.roadmap-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: relative;
+    border: 1px solid #f2e8da;
+}
+.roadmap-card::before {
+    content: '';
+    position: absolute;
+    left: -29px;
+    top: 30px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ff7f00;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px #ffcca3;
+}
+.roadmap-selo {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+.selo-melhorias { background-color: #ffe6cc; color: #cc6600; }
+.selo-ios { background-color: #e6f2ff; color: #0055cc; }
+.selo-futuro { background-color: #f2e6ff; color: #5500cc; }
+.roadmap-data {
+    font-family: 'Licorice', cursive;
+    font-size: 2rem;
+    color: #ff7f00;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+.roadmap-titulo {
+    font-size: 1.5rem;
+    color: #3d2c1e;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+.roadmap-lista {
+    list-style: none;
+    padding: 0;
+}
+.roadmap-lista li {
+    margin-bottom: 12px;
+    padding-left: 24px;
+    position: relative;
+    color: #5a402d;
+    line-height: 1.5;
+}
+.roadmap-lista li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+}
+.badge-free, .badge-premium {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+.badge-free { background-color: #e1f5fe; color: #0277bd; }
+.badge-premium { background-color: #fff8e1; color: #f57f17; border: 1px solid #ffe082; }
+.destaque-ios {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+    border-color: #cce4ff;
+}
+.roadmap-texto {
+    color: #5a402d;
+    line-height: 1.6;
+}
+/* Adaptação Mobile para Timeline */
+@media (max-width: 600px) {
+    .timeline-container {
+        padding-left: 15px;
+    }
+    .roadmap-card::before {
+        left: -24px;
+        width: 12px;
+        height: 12px;
+    }
+    .roadmap-card {
+        padding: 20px;
+    }
+}

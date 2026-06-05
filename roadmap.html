@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap Público — Panela de Sobra</title>
+    <meta name="description" content="Acompanhe o futuro do Panela de Sobra. Veja quais são as próximas novidades que estamos preparando para a sua cozinha.">
+    
+    <link rel="preload" href="https://fonts.gstatic.com/s/licorice/v6/t5hjIRL6f4PTC1JN-DmC5PdX6Gk.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Licorice&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <link rel="icon" href="assets/imagens/favicon.png" type="image/png">
+</head>
+<body style="background-color: #fdfaf5; display: flex; flex-direction: column; min-height: 100vh;">
+    <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#fff8e6;display:flex;justify-content:center;align-items:center;z-index:99999;margin:0;padding:0;animation:sumir 0.5s ease 2s forwards;">
+        <div style="text-align:center;">
+            <div style="position:relative;display:inline-block;margin-bottom:1.5rem;">
+                <span style="font-size:5rem;display:block;animation:pulsar 1.2s ease-in-out infinite;">🍲</span>
+                <div style="position:absolute;top:-20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;">
+                    <span style="display:block;width:8px;height:20px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out infinite;"></span>
+                    <span style="display:block;width:8px;height:16px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.2s infinite;"></span>
+                    <span style="display:block;width:8px;height:12px;background:#ff7f00;border-radius:50%;opacity:0.6;animation:vapor 1.5s ease-in-out 0.4s infinite;"></span>
+                </div>
+            </div>
+            <p style="font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:600;color:#3d2c1e;opacity:0.8;animation:pulsar 1.5s ease-in-out infinite;">Preparando os ingredientes...</p>
+        </div>
+    </div>
+    <style>
+        @keyframes pulsar {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.7; }
+        }
+        @keyframes vapor {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-15px) scale(1.5); opacity: 0; }
+        }
+        @keyframes sumir {
+            to { opacity: 0; visibility: hidden; }
+        }
+    </style>
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+        <div class="container cabecalho__conteudo">
+            <a href="index.html" class="logo">Panela de Sobra</a>
+            <div style="flex-grow: 1; text-align: center;">
+                <a href="roadmap.html" class="btn" style="background-color: #3d2c1e; color: #fff8e6; padding: 0 20px; font-weight: 700; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; height: 40px; font-size: 1rem;">Roadmap 🚀</a>
+            </div>
+            <div class="cabecalho__botoes" style="display: flex; gap: 10px; align-items: center;">
+                <a href="apoie.html" class="btn" style="background-color: #FACC15; color: #43411B; padding: 10px 20px; font-weight: 700; border-radius: 8px; text-decoration: none; display: flex; align-items: center; height: 40px;">Apoiar Vaquinha 🍲</a>
+                <a href="https://play.google.com/store/apps/details?id=br.com.paneladesobra.app" target="_blank" style="display: inline-block;">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png" alt="Disponível no Google Play" style="height: 52px; margin-top: 5px;">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Roadmap -->
+    <section class="hero-roadmap">
+        <div class="container">
+            <h1 class="hero__headline title-licorice" style="font-size: 4rem; color: #ff7f00; margin-bottom: 15px;">Nosso Futuro Juntos</h1>
+            <p class="hero__subtitulo" style="max-width: 600px; margin: 0 auto; color: #5a402d;">A sua colaboração na nossa Vakinha financia as próximas novidades do app. Acompanhe abaixo o que vem por aí e saiba exatamente onde estamos investindo!</p>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="roadmap-section">
+        <div class="container">
+            <div class="timeline-container">
+                
+                <!-- Fase 1 -->
+                <div class="roadmap-card">
+                    <div class="roadmap-selo selo-melhorias">Em Breve</div>
+                    <div class="roadmap-data">Mês de Junho</div>
+                    <h3 class="roadmap-titulo">O Pivot Social & Facilidades</h3>
+                    <ul class="roadmap-lista">
+                        <li><strong>Compartilhamento:</strong> Envie suas receitas prontas e bonitas para os amigos. <span class="badge-free">Gratuito</span></li>
+                        <li><strong>Seguir amigos:</strong> Acompanhe as receitas públicas de outros perfis na plataforma. <span class="badge-free">Gratuito</span></li>
+                        <li><strong>Organização fácil:</strong> Limpe a lista de compras e a despensa com um único clique. <span class="badge-free">Gratuito</span></li>
+                        <li><strong>Lista de Compras 1-Clique:</strong> Envie para a lista de compras os ingredientes faltantes de uma receita com apenas um clique. <span class="badge-premium">Premium</span></li>
+                        <li><strong>Comandos de voz:</strong> Adicione itens na despensa e na lista de compras apenas falando. <span class="badge-premium">Premium</span></li>
+                        <li><strong>Substituições Inteligentes:</strong> Sugestões automáticas do app para aquele ingrediente que você não tem em casa. <span class="badge-premium">Premium</span></li>
+                    </ul>
+                </div>
+
+                <!-- Fase 2 -->
+                <div class="roadmap-card destaque-ios">
+                    <div class="roadmap-selo selo-ios">A Grande Expansão</div>
+                    <div class="roadmap-data">Mês de Julho</div>
+                    <h3 class="roadmap-titulo">Chegada na Apple Store 🍎</h3>
+                    <p class="roadmap-texto">O momento mais aguardado! Nosso foco absoluto em julho será trazer o Panela de Sobra para o sistema <strong>iOS (iPhone)</strong>, garantindo que toda a comunidade possa participar e salvar suas receitas com a gente.</p>
+                </div>
+
+                <!-- Fase 3 -->
+                <div class="roadmap-card">
+                    <div class="roadmap-selo selo-futuro">Visão de Futuro</div>
+                    <div class="roadmap-data">Segundo Semestre</div>
+                    <h3 class="roadmap-titulo">A Cozinha do Amanhã</h3>
+                    <ul class="roadmap-lista">
+                        <li><strong>Leitura Automática:</strong> Escaneie sua despensa ou geladeira pela câmera do celular e o app adicionará tudo sozinho. <span class="badge-premium">Premium</span></li>
+                        <li><strong>Receita por Foto:</strong> Tire foto de um prato pronto e receba uma sugestão de receita e ingredientes para prepará-lo em casa. <span class="badge-premium">Premium</span></li>
+                        <li><strong>Cooksnaps:</strong> Tire fotos reais do resultado das suas receitas e poste na nossa comunidade.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container rodape__conteudo">
+            <p class="rodape__copy">© 2026 Panela de Sobra — Todos os direitos reservados. Feito com ❤️ e muitas panelas.</p>
+            <nav class="rodape__links">
+                <a href="contato.html">Contato</a>
+                <a href="termos-de-uso.html">Termos de Uso</a>
+                <a href="politica-de-privacidade.html">Política de Privacidade</a>
+            </nav>
+            <p class="rodape__lgpd">Respeitamos sua privacidade. Seus dados estão seguros conosco de acordo com nossa Política de Privacidade.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Por favor, selecione ou digite um valor válido.');
             return;
         }
-        
+
         let nomeDoador = document.getElementById('nome-apoiador')?.value?.trim();
         if (!nomeDoador) {
             nomeDoador = 'Anônimo';
@@ -77,25 +77,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Lógica de Atualização da Barra de Progresso
     function atualizarProgresso(totalArrecadado) {
-        let semanas = 0;
         let progressoBarra = 0;
         let metaAtual = 1500;
+        let titulo = '';
+        let desc = '';
+        let conquista = '';
 
-        if (totalArrecadado >= 1500) {
-            let restante = totalArrecadado - 1500;
-            let metasExtras = Math.floor(restante / 500);
-            semanas = 3 + metasExtras;
-            progressoBarra = restante % 500;
-            metaAtual = 500;
-
-            document.getElementById('meta-titulo-texto').innerText = 'Meta Atual: Mais 1 semana!';
-            document.getElementById('meta-desc-texto').innerText = 'Precisamos de R$ 500 para garantir a próxima semana de servidores.';
-        } else {
+        if (totalArrecadado < 1500) {
             progressoBarra = totalArrecadado;
             metaAtual = 1500;
-
-            document.getElementById('meta-titulo-texto').innerText = 'Meta Atual: 3 Semanas de operação!';
-            document.getElementById('meta-desc-texto').innerText = 'Precisamos de R$ 1.500 para cobrir os custos iniciais dos servidores.';
+            titulo = 'Meta Atual: 3 Semanas de operação!';
+            desc = 'Precisamos de R$ 1.500 para cobrir os custos iniciais dos servidores.';
+            conquista = '';
+        } else if (totalArrecadado < 2000) {
+            progressoBarra = totalArrecadado - 1500;
+            metaAtual = 500;
+            titulo = 'Meta Atual: Pagamento da anuidade do iOS!';
+            desc = 'Precisamos de R$ 500 para cobrir a taxa de $99 USD da Apple Developer Account.';
+            conquista = '3 semanas de operação do app garantidas!';
+        } else {
+            let restante = totalArrecadado - 2000;
+            let metasExtras = Math.floor(restante / 500);
+            progressoBarra = restante % 500;
+            metaAtual = 500;
+            titulo = 'Meta Atual: +1 semana de trabalho dedicada!';
+            desc = 'A cada R$ 500, garantimos mais uma semana de trabalho dedicada para melhorar o app.';
+            conquista = `Anuidade iOS e ${3 + metasExtras} semanas garantidas!`;
         }
 
         const porcentagem = (progressoBarra / metaAtual) * 100;
@@ -103,12 +110,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('valor-arrecadado').innerText = `R$ ${progressoBarra.toFixed(2).replace('.', ',')}`;
         document.getElementById('valor-objetivo').innerText = `R$ ${metaAtual.toFixed(2).replace('.', ',')}`;
 
-        if (semanas > 0) {
-            const containerConquista = document.getElementById('vakinha-conquista');
+        document.getElementById('meta-titulo-texto').innerText = titulo;
+        document.getElementById('meta-desc-texto').innerText = desc;
+
+        const containerConquista = document.getElementById('vakinha-conquista');
+        if (conquista) {
             containerConquista.style.display = 'block';
-            document.getElementById('conquista-texto').innerText = `${semanas} semanas de operação do app garantidas!`;
+            document.getElementById('conquista-texto').innerText = conquista;
         } else {
-            document.getElementById('vakinha-conquista').style.display = 'none';
+            containerConquista.style.display = 'none';
         }
     }
 
@@ -142,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function carregarApoiadores() {
     try {
         const res = await fetch('https://firestore.googleapis.com/v1/projects/panela-de-sobra/databases/(default)/documents/vakinha_transacoes');
-        
+
         if (res.status !== 200) {
             throw new Error('Falha ou permissão negada');
         }
@@ -150,7 +160,7 @@ async function carregarApoiadores() {
         const data = await res.json();
         const listaDiv = document.getElementById('lista-apoiadores');
         listaDiv.innerHTML = ''; // limpa loading
-        
+
         if (!data.documents || data.documents.length === 0) {
             listaDiv.innerHTML = '<p style="color: #8B6F47; font-family: \'Nunito\', sans-serif; font-size: 1rem; text-align: center; margin: 20px 0;">Seja o primeiro a apoiar! 💛</p>';
             return;
@@ -178,7 +188,7 @@ async function carregarApoiadores() {
         transacoes.forEach(t => {
             const item = document.createElement('div');
             item.style.cssText = 'display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #E4E4E4;';
-            
+
             const nomeSpan = document.createElement('span');
             nomeSpan.style.cssText = 'font-family: \'Nunito\', sans-serif; font-weight: 600; color: #43411b;';
             nomeSpan.innerText = t.nome;
@@ -191,7 +201,7 @@ async function carregarApoiadores() {
             item.appendChild(valorSpan);
             listaDiv.appendChild(item);
         });
-        
+
     } catch (e) {
         // Se a API ainda não existir ou der 403 (antes da Bia configurar), silenciamos
         const listaDiv = document.getElementById('lista-apoiadores');

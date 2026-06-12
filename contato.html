@@ -134,7 +134,7 @@
                 igual bolo no forno.</p>
 
 <!-- Formulário de contato -->
-<form id="form-contato" class="form-contato" action="https://formspree.io/f/xeedqyew" method="POST">
+<form id="form-contato" class="form-contato" action="https://southamerica-east1-panela-de-sobra.cloudfunctions.net/webhookFormspree" method="POST">
 <div class="campo">
 <label for="nome">Seu nome</label>
 <input type="text" id="nome" name="nome" placeholder="Como você gosta de ser chamado(a)" required>
@@ -195,10 +195,14 @@
                     botao.disabled = true;
                     botao.style.opacity = '0.7';
 
+                    const formData = new FormData(formContato);
+                    const payload = Object.fromEntries(formData.entries());
+
                     fetch(formContato.getAttribute('action'), {
                         method: 'POST',
-                        body: new FormData(formContato),
+                        body: JSON.stringify(payload),
                         headers: {
+                            'Content-Type': 'application/json',
                             'Accept': 'application/json'
                         }
                     })

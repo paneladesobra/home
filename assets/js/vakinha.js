@@ -151,23 +151,41 @@ document.addEventListener('DOMContentLoaded', () => {
 // Busca e renderiza os apoiadores
 async function carregarApoiadores() {
     try {
-        const res = await fetch('https://firestore.googleapis.com/v1/projects/panela-de-sobra/databases/(default)/documents/vakinha_transacoes');
+        const res = await fetch('https://firestore.googleapis.com/v1/projects/panela-de-sobra/databases/(default)/documents:runQuery', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                structuredQuery: {
+                    from: [{ collectionId: 'vakinha_transacoes' }],
+                    orderBy: [{
+                        field: { fieldPath: 'data' },
+                        direction: 'DESCENDING'
+                    }],
+                    limit: 150
+                }
+            })
+        });
 
         if (res.status !== 200) {
             throw new Error('Falha ou permissão negada');
         }
 
-        const data = await res.json();
+        const rawDocs = await res.json();
         const listaDiv = document.getElementById('lista-apoiadores');
         listaDiv.innerHTML = ''; // limpa loading
 
-        if (!data.documents || data.documents.length === 0) {
+        // Filtra os resultados que contêm documentos válidos
+        const documents = rawDocs
+            .filter(item => item && item.document)
+            .map(item => item.document);
+
+        if (documents.length === 0) {
             listaDiv.innerHTML = '<p style="color: #8B6F47; font-family: \'Nunito\', sans-serif; font-size: 1rem; text-align: center; margin: 20px 0;">Seja o primeiro a apoiar! 💛</p>';
             return;
         }
 
         // Filtra os que tem status approved
-        let transacoes = data.documents
+        let transacoes = documents
             .map(doc => {
                 const f = doc.fields;
                 return {

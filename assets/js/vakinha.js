@@ -151,52 +151,33 @@ document.addEventListener('DOMContentLoaded', () => {
 // Busca e renderiza os apoiadores
 async function carregarApoiadores() {
     try {
-        const res = await fetch('https://firestore.googleapis.com/v1/projects/panela-de-sobra/databases/(default)/documents:runQuery', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                structuredQuery: {
-                    from: [{ collectionId: 'vakinha_transacoes' }],
-                    orderBy: [{
-                        field: { fieldPath: 'data' },
-                        direction: 'DESCENDING'
-                    }],
-                    limit: 150
-                }
-            })
-        });
+        const res = await fetch('https://firestore.googleapis.com/v1/projects/panela-de-sobra/databases/(default)/documents/vakinha/status');
 
         if (res.status !== 200) {
             throw new Error('Falha ou permissão negada');
         }
 
-        const rawDocs = await res.json();
+        const data = await res.json();
         const listaDiv = document.getElementById('lista-apoiadores');
         listaDiv.innerHTML = ''; // limpa loading
 
-        // Filtra os resultados que contêm documentos válidos
-        const documents = rawDocs
-            .filter(item => item && item.document)
-            .map(item => item.document);
-
-        if (documents.length === 0) {
+        const fields = data.fields;
+        if (!fields || !fields.apoiadores || !fields.apoiadores.arrayValue || !fields.apoiadores.arrayValue.values) {
             listaDiv.innerHTML = '<p style="color: #8B6F47; font-family: \'Nunito\', sans-serif; font-size: 1rem; text-align: center; margin: 20px 0;">Seja o primeiro a apoiar! 💛</p>';
             return;
         }
 
-        // Filtra os que tem status approved
-        let transacoes = documents
-            .map(doc => {
-                const f = doc.fields;
-                return {
-                    nome: f.nomeDoador?.stringValue || f.nome?.stringValue || f.metadata?.mapValue?.fields?.doador?.stringValue || 'Anônimo',
-                    valor: Number(f.amount?.integerValue || f.amount?.doubleValue || 0),
-                    status: f.status?.stringValue,
-                    data: f.data?.stringValue || ''
-                };
-            })
-            .filter(t => t.status === 'approved')
-            .sort((a, b) => new Date(b.data) - new Date(a.data)); // Mais recentes primeiro
+        const values = fields.apoiadores.arrayValue.values;
+
+        // Mapeia a lista de apoiadores do array público (já vem filtrado e ordenado)
+        let transacoes = values.map(val => {
+            const f = val.mapValue?.fields;
+            if (!f) return null;
+            return {
+                nome: f.nomeDoador?.stringValue || 'Anônimo',
+                valor: Number(f.amount?.integerValue || f.amount?.doubleValue || 0)
+            };
+        }).filter(t => t !== null);
 
         if (transacoes.length === 0) {
             listaDiv.innerHTML = '<p style="color: #8B6F47; font-family: \'Nunito\', sans-serif; font-size: 1rem; text-align: center; margin: 20px 0;">Nenhuma doação processada ainda.</p>';
@@ -221,7 +202,6 @@ async function carregarApoiadores() {
         });
 
     } catch (e) {
-        // Se a API ainda não existir ou der 403 (antes da Bia configurar), silenciamos
         const listaDiv = document.getElementById('lista-apoiadores');
         listaDiv.innerHTML = '<p style="color: #8B6F47; font-family: \'Nunito\', sans-serif; font-size: 1rem; text-align: center; margin: 20px 0;">Preparando a lista de apoiadores...</p>';
     }

@@ -637,6 +637,10 @@ h2::after {
   resize: vertical;
 }
 
+.campo textarea {
+  padding: 20px 18px 14px 36px; /* Evita que a curva esconda o cursor de foco */
+}
+
 .campo input:focus,
 .campo textarea:focus {
   border-color: var(--vermelho);

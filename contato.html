@@ -135,6 +135,11 @@
 
 <!-- Formulário de contato -->
 <form id="form-contato" class="form-contato" action="https://southamerica-east1-panela-de-sobra.cloudfunctions.net/webhookFormspree" method="POST">
+<!-- Campo honeypot para proteção contra spam (LGPD) -->
+<div style="display:none !important;" aria-hidden="true">
+    <label for="sobrenome_confirmacao">Se você é humano, deixe este campo em branco:</label>
+    <input type="text" id="sobrenome_confirmacao" name="sobrenome_confirmacao" tabindex="-1" autocomplete="off">
+</div>
 <div class="campo">
 <label for="nome">Seu nome</label>
 <input type="text" id="nome" name="nome" placeholder="Como você gosta de ser chamado(a)" required>
@@ -197,6 +202,11 @@
 
                     const formData = new FormData(formContato);
                     const payload = Object.fromEntries(formData.entries());
+
+                    // Cálculo dinâmico do token de segurança contra spam bots
+                    const today = new Date();
+                    const formattedDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                    payload.securityToken = btoa("panela-de-sobra-" + formattedDate);
 
                     fetch(formContato.getAttribute('action'), {
                         method: 'POST',

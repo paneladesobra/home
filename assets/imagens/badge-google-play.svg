@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162 48" width="162" height="48" role="img" aria-label="Disponível no Google Play">
+  <rect width="162" height="48" rx="8" fill="#000000" stroke="#a6a6a6" stroke-width="0.8"/>
+  <g transform="translate(14, 10)">
+    <defs>
+      <linearGradient id="gp_blue" x1="13.8" y1="2" x2="-2.8" y2="18.6" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#00A0FF"/>
+        <stop offset="100%" stop-color="#00EAF4"/>
+      </linearGradient>
+      <linearGradient id="gp_yellow" x1="26.4" y1="14" x2="0.4" y2="14" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#FFE000"/>
+        <stop offset="100%" stop-color="#FFBD00"/>
+      </linearGradient>
+      <linearGradient id="gp_red" x1="22.5" y1="16.9" x2="2.8" y2="36.6" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#FF2A42"/>
+        <stop offset="100%" stop-color="#FF6B00"/>
+      </linearGradient>
+      <linearGradient id="gp_green" x1="5.5" y1="-5.5" x2="20.3" y2="9.3" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#00E575"/>
+        <stop offset="100%" stop-color="#00A84D"/>
+      </linearGradient>
+    </defs>
+    <path d="M1.4 0.9C0.9 1.4 0.6 2.1 0.6 3.0V25.0C0.6 25.9 0.9 26.6 1.4 27.1L1.5 27.2L14.8 14.1V13.9L1.5 0.8L1.4 0.9Z" fill="url(#gp_blue)"/>
+    <path d="M19.2 18.5L14.8 14.0V13.9L19.2 9.5L19.4 9.6L24.6 12.5C26.1 13.3 26.1 14.7 24.6 15.5L19.4 18.4L19.2 18.5Z" fill="url(#gp_yellow)"/>
+    <path d="M19.4 18.4L14.8 14.0L1.4 27.1C2.0 27.7 2.8 27.8 3.8 27.2L19.4 18.4" fill="url(#gp_red)"/>
+    <path d="M19.4 9.6L3.8 0.8C2.8 0.2 2.0 0.3 1.4 0.9L14.8 14.0L19.4 9.6" fill="url(#gp_green)"/>
+  </g>
+  <text x="47" y="16" fill="#D1D5DB" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="8" font-weight="600" letter-spacing="0.8">DISPONÍVEL NO</text>
+  <text x="47" y="34" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="0.2">Google Play</text>
+</svg>

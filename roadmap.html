@@ -12,7 +12,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Licorice&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     
 <link rel="stylesheet" href="assets/css/estilo.css">
-<link rel="icon" href="assets/imagens/favicon.png" type="image/png">
+<!-- Favicon e Ícones para Abas, Celulares e Busca do Google -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/imagens/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/imagens/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/imagens/favicon-192x192.png">
+<link rel="icon" type="image/png" href="assets/imagens/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/imagens/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#ff7f00">
 </head>
 <body style="background-color: #fdfaf5; display: flex; flex-direction: column; min-height: 100vh;">
 <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#fff8e6;display:flex;justify-content:center;align-items:center;z-index:99999;margin:0;padding:0;animation:sumir 0.5s ease 2s forwards;">
@@ -48,10 +56,13 @@
 <div style="flex-grow: 1; text-align: center;">
 <a href="roadmap.html" class="btn" style="background-color: #3d2c1e; color: #fff8e6; padding: 0 20px; font-weight: 700; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; height: 40px; font-size: 1rem;">Roadmap</a>
 </div>
-<div class="cabecalho__botoes" style="display: flex; gap: 10px; align-items: center;">
-<a href="apoie.html" class="btn" style="background-color: #FACC15; color: #43411B; padding: 10px 20px; font-weight: 700; border-radius: 8px; text-decoration: none; display: flex; align-items: center; height: 40px;">Apoiar Vaquinha</a>
-<a href="https://play.google.com/store/apps/details?id=br.com.paneladesobra.app" target="_blank" style="display: inline-block;">
-<img src="https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png" alt="Disponível no Google Play" style="height: 52px; margin-top: 5px;">
+<div class="cabecalho__botoes" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+<a href="apoie.html" class="btn" style="background-color: #FACC15; color: #43411B; padding: 10px 18px; font-weight: 700; border-radius: 8px; text-decoration: none; display: flex; align-items: center; height: 40px; font-size: 0.95rem;">Apoiar Vaquinha</a>
+<a href="https://play.google.com/store/apps/details?id=br.com.paneladesobra.app" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;" aria-label="Disponível no Google Play">
+<img src="assets/imagens/badge-google-play.svg" alt="Disponível no Google Play" style="height: 40px; width: auto;">
+</a>
+<a href="https://apps.apple.com/br/app/panela-de-sobra/id6788151151" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;" aria-label="Disponível na App Store">
+<img src="assets/imagens/badge-app-store.svg" alt="Disponível na App Store" style="height: 40px; width: auto;">
 </a>
 </div>
 </div>

@@ -1,0 +1,21 @@
+{
+  "name": "Panela de Sobra",
+  "short_name": "Panela de Sobra",
+  "description": "Sua cozinha tem mais receitas do que você imagina.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FFF8E6",
+  "theme_color": "#FF7F00",
+  "icons": [
+    {
+      "src": "assets/imagens/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/imagens/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
